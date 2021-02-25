@@ -48,3 +48,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'slim'
 gem 'simple_form'
+group :development, :test do
+  gem 'rubocop'
+  gem 'rubocop-rails'
+end
