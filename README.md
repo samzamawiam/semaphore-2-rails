@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```
+bundle install
+npm i -g yarn (if you don't have it already)
+bundle exec rails db:create (db steps just needed to make rails happy at boot, nothing stored in DB)
+bundle exec rails db:migrate
+bundle exec rspec
+```
 
-Things you may want to cover:
+Should run the `spec/system/basic_spec.rb` file.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Use the following command in a pry session to see the JS errors
+`page.driver.browser.manage.logs.get(:browser)`
