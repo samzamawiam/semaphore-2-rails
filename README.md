@@ -3,6 +3,7 @@
 ```
 bundle install
 npm i -g yarn (if you don't have it already)
+yarn install
 bundle exec rails db:create (db steps just needed to make rails happy at boot, nothing stored in DB)
 bundle exec rails db:migrate
 bundle exec rspec
