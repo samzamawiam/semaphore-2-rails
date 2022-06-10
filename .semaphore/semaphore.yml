@@ -1,42 +1,13 @@
 version: v1.0
-name: Semaphore 2 Rails Demo
+name: Initial Pipeline
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-auto_cancel:
-  running:
-    when: branch != 'master'
 blocks:
-  - name: Build2
-    execution_time_limit:
-      minutes: 10
+  - name: 'Block #1'
     task:
-      agent:
-        machine:
-          type: e1-standard-2
-          os_image: ubuntu1804
-      env_vars:
-        - name: RAILS_ENV
-          value: test
-        - name: NODE_ENV
-          value: tes
-        - name: TEST_BOOSTERS_RSPEC_TEST_FILE_PATTERN
-          value: spec/system/**/*_spec.rb
-      prologue:
-        commands:
-          - checkout
-          - sem-service start postgres
-          - sem-version ruby $(cat .ruby-version)
-          - sem-version node $(cat .node-version)
-          - gem install bundler --no-document
-          - npm i -g yarn
-          - bundle config set deployment 'true'
-          - bundle config set path 'vendor/bundle'
       jobs:
-        - name: Install Dependencies
+        - name: 'Job #1'
           commands:
-            - bundle install
-            - yarn install
-            - 'bundle exec rails db:setup db:test:prepare'
-            - 'bin/rails webpacker:compile'
+            - checkout
